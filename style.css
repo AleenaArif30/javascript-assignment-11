@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+
+.form{
+  max-width: 500px;
+  height: auto;
+  border: 5px solid black;
+  margin: auto;
+  background-color: rgba(28, 180, 130, 0.199);
+  background-image: url("https://static.vecteezy.com/system/resources/previews/003/546/901/non_2x/bubble-abstract-background-texture-free-vector.jpg");
+  
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+.inside{
+    margin-left: 90px;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+#first{
+    height: 30px;
+    
+}
+#last{
+    height: 30px;
+}
+#email{
+    height: 30px;
+}
+#pass{
+    height: 30px;
+}
+.btn{
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(19, 50, 59);
+    border-radius: 20px;
+    border: 2px solid black;
+    cursor: grab;
+}
+.regis{
+    margin-left: 90px;
+    margin-top: 50px;
+    text-decoration: underline double;
+}
+.text{
+    text-decoration: underline double;
+    
+}
