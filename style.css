@@ -7,6 +7,8 @@
   height: auto;
   border: 2px solid black;
   margin: auto;
+  margin-left: 20px;
+  margin-right: 20px;
   
   background-color: rgba(28, 180, 130, 0.199);
   background-image: url("https://static.vecteezy.com/system/resources/previews/003/546/901/non_2x/bubble-abstract-background-texture-free-vector.jpg");
@@ -75,4 +77,6 @@
     .card{
         border: 2px solid black;
         margin: auto;
+        margin-left: 20px;
+        margin-right: 20px;
     }
