@@ -17,15 +17,16 @@ function sub() {
         console.log(last)
         console.log(email)
         console.log(pass)
-        document.write("first name" + first + "<br>")
-        document.write("last name" + last + "<br>")
-        document.write("Email:" + email + "<br>")
-        document.write("Password:" + pass + "<br>")
+        // document.write("first name" + first + "<br>")
+        // document.write("last name" + last + "<br>")
+        // document.write("Email:" + email + "<br>")
+        // document.write("Password:" + pass + "<br>")
         alert("your form has been submit")
     }
 
 }
-function expand() {
+function expand(event) {
+    event.preventDefault()
     var link = document.getElementById("link")
     var morecontent = document.getElementById("more-content")
     if (link.innerHTML === "Read more") {
@@ -38,7 +39,8 @@ function expand() {
     }
 }
 
-function twoexpand() {
+function twoexpand(event) {
+    event.preventDefault()
     var links = document.getElementById("links")
     var morecontents = document.getElementById("more-contents")
     if (links.innerHTML === "Read more") {
@@ -51,7 +53,8 @@ function twoexpand() {
     }
 }
 
-function threeexpand() {
+function threeexpand(event) {
+    event.preventDefault()
     var slink = document.getElementById("slink")
     var smorecontent = document.getElementById("smore-content")
     if (slink.innerHTML === "Read more") {
@@ -77,16 +80,12 @@ document.getElementById("studentForm").addEventListener("submit", function (e) {
     var table = document.getElementById("studentTable").querySelector("tbody")
     var newTr = table.insertRow();
 
-    var td1 = newTr.insertCell(0)
-    var td2 = newTr.insertCell(1)
-    var td3 = newTr.insertCell(2)
-    var td4 = newTr.insertCell(3)
-
-    td1.innerHTML = name
-    td2.innerHTML = classname
-    td3.innerHTML = age
-    td4.innerHTML = `<button onclick="editRow(this)">Edit</button> <button onclick="deleteRow(this)">Delete</button>`
+    var td1 = newTr.insertCell(0).innerHTML = name
+    var td2 = newTr.insertCell(1).innerHTML = classname
+    var td3 = newTr.insertCell(2).innerHTML = age
+    var td4 = newTr.insertCell(3).innerHTML = `<button onclick="editRow(this)">Edit</button> <button onclick="deleteRow(this)">Delete</button>`
     document.getElementById("studentForm").reset()
+
 
 
 })
@@ -94,7 +93,39 @@ function deleteRow(button) {
     var tr = button.parentNode.parentNode
     tr.parentNode.removeChild(tr)
 }
-function editRow() {
+
+function editRow(button) {
+
+
+
+    var tr = button.parentNode.parentNode
+    var index = tr.rowIndex -1
+    console.log(index)
+    document.getElementById("editindex").value = index
+    document.getElementById("editname").value = tr.cells[0].innerHTML
+    document.getElementById("editclass").value = tr.cells[1].innerHTML
+    document.getElementById("editage").value = tr.cells[2].innerHTML
+
+    document.getElementById("editFormContent").classList.remove("hidden")
+
 
 }
 
+
+
+document.getElementById("editform").addEventListener("submit", function (e) {
+    e.preventDefault()
+    var editindex = document.getElementById("editindex").value
+    var editname = document.getElementById("editname").value
+    var editclass = document.getElementById("editclass").value
+    var editage = document.getElementById("editage").value
+
+    var table = document.getElementById("studentTable").querySelector("tbody")
+    var tr = table.rows[editindex]
+
+    tr.cells[0].innerHTML = editname
+    tr.cells[1].innerHTML = editclass
+    tr.cells[2].innerHTML = editage
+    document.getElementById("editFormContent").classList.add("hidden")
+
+})

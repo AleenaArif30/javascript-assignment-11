@@ -105,5 +105,14 @@
         height: auto;
         border: 2px solid black;
         margin: auto;
-        background-color: cornflowerblue;
+        background-image: url("https://m.media-amazon.com/images/I/71+17bVYHxL._AC_UF1000,1000_QL80_.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+     .hidden{
+        display: none;
+    } 
+
+    table,th,td {
+        border: 1px solid black;
     }
